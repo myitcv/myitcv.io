@@ -46,6 +46,10 @@ var ps = []pkg{
 		RelPath:    "gitgodoc",
 		GithubPath: "github.com/myitcv/gitgodoc",
 	},
+	pkg{
+		RelPath:    "g",
+		GithubPath: "github.com/myitcv/g",
+	},
 }
 
 func init() {
@@ -58,8 +62,9 @@ func init() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
 		p := strings.TrimPrefix(req.URL.EscapedPath(), "/")
+		ps := strings.Split(p, "/")
 
-		r, ok := pkgs[p]
+		r, ok := pkgs[ps[0]]
 		if ok {
 			tmpls.ExecuteTemplate(w, "pkg", r)
 		} else {
