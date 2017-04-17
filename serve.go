@@ -90,6 +90,7 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.ImportPath}}</title>
     <meta name="go-import" content="{{.ImportPath}} git https://{{.GithubPath}}">
   </head>
@@ -108,6 +109,7 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>myitcv.io</title>
   </head>
   <body>
