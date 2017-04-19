@@ -23,6 +23,10 @@ var ps = []pkg{
 		GithubPath: "github.com/myitcv/remarkable",
 	},
 	pkg{
+		RelPath:    "highlightjs",
+		GithubPath: "github.com/myitcv/highlightjs",
+	},
+	pkg{
 		RelPath:    "immutable",
 		GithubPath: "github.com/myitcv/immutable",
 	},
