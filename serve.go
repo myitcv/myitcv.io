@@ -45,6 +45,11 @@ var ps = []pkg{
 		Desc:       "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
 	},
 	pkg{
+		RelPath:    "go",
+		GithubPath: "github.com/myitcv/go",
+		Desc:       "go is a wrapper around the go tool that automatically sets the GOPATH env variable based on the process' current directory.",
+	},
+	pkg{
 		RelPath:    "gg",
 		GithubPath: "github.com/myitcv/gg",
 	},
