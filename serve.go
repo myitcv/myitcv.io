@@ -16,6 +16,11 @@ type pkg struct {
 
 var ps = []pkg{
 	pkg{
+		RelPath:    "gopherize.me",
+		GithubPath: "github.com/myitcv/gopherize.me",
+		Desc:       "GopherJS React version of Gopherize.me",
+	},
+	pkg{
 		RelPath:    "react",
 		GithubPath: "github.com/myitcv/react",
 		Desc:       "Package react is a set of GopherJS bindings for Facebook's React, a Javascript library for building user interfaces.",
