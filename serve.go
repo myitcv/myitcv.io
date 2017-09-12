@@ -11,6 +11,7 @@ type pkg struct {
 	ImportPath string
 	RelPath    string
 	GithubPath string
+	WikiUrl    string
 	Desc       string
 }
 
@@ -23,6 +24,7 @@ var ps = []pkg{
 	pkg{
 		RelPath:    "react",
 		GithubPath: "github.com/myitcv/react",
+		WikiUrl:    "https://github.com/myitcv/react/wiki",
 		Desc:       "Package react is a set of GopherJS bindings for Facebook's React, a Javascript library for building user interfaces.",
 	},
 	pkg{
@@ -120,7 +122,10 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <h3><code>{{.ImportPath}}</code></h3>
 	 <p>{{.Desc}}</p>
 	 <code>go get -u {{.ImportPath}}</code><br/><br/>
-    <a href="https://godoc.org/{{.ImportPath}}">Documentation</a><br/>
+	 {{if .WikiUrl}}
+    <a href="{{.WikiUrl}}">Wiki</a><br/>
+	 {{end}}
+    <a href="https://godoc.org/{{.ImportPath}}"><code>godoc</code></a><br/>
     <a href="https://{{.GithubPath}}">Source</a>
   </p>
 	 {{template "footer"}}
