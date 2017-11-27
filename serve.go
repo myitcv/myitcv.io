@@ -142,7 +142,10 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
   </head>
   <body>
   <h3><code>myitcv.io</code></h3>
-  <p><a href="http://blog.myitcv.org.uk">Blog</a></p>
+  <p>
+  <a href="http://blog.myitcv.org.uk">Blog</a><br/>
+  <a href="https://twitter.com/_myitcv">Twitter</a>
+  </p>
   <ul style="list-style: none; padding-left:0;">
   <li>Packages: <ul>
   {{range .}}
