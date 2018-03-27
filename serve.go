@@ -61,6 +61,11 @@ var ps = []pkg{
 		GithubPath: "github.com/myitcv/gg",
 	},
 	pkg{
+		RelPath:    "gjbt",
+		GithubPath: "github.com/myitcv/gjbt",
+		Desc:       "gjbt is a simple (temporary) wrapper for GopherJS to run tests in Chrome as opposed to NodeJS. It should be considered to be a direct replacement for gopherjs test",
+	},
+	pkg{
 		RelPath:    "gai",
 		GithubPath: "github.com/myitcv/gai",
 	},
