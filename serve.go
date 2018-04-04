@@ -48,10 +48,9 @@ var ps = []pkg{
 		GithubPath: "github.com/myitcv/sorter",
 	},
 	pkg{
-		RelPath:    "gogenerate",
-		MonoRepo:   true,
-		GithubPath: "github.com/myitcv/gogenerate",
-		Desc:       "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
+		RelPath:  "gogenerate",
+		MonoRepo: true,
+		Desc:     "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
 	},
 	pkg{
 		RelPath:    "go",
@@ -137,7 +136,11 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <a href="{{.WikiUrl}}">Wiki</a><br/>
 	 {{end}}
     <a href="https://godoc.org/{{.ImportPath}}"><code>godoc</code></a><br/>
+	 {{if .MonoRepo -}}
+    <a href="https://github.com/myitcv/x/tree/master/{{.RelPath}}">Source</a>
+	 {{else -}}
     <a href="https://{{.GithubPath}}">Source</a>
+	 {{end}}
   </p>
 	 {{template "footer"}}
   </body>
