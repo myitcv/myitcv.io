@@ -155,6 +155,7 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>myitcv.io</title>
   <meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+  <meta name="go-import" content="myitcv.io mod https://github.com/myitcv/x">
   </head>
   <body>
   <h3><code>myitcv.io</code></h3>
