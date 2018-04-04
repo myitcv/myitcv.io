@@ -122,7 +122,7 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.ImportPath}}</title>
 	 {{if .MonoRepo -}}
-    <meta name="go-import" content="{{.ImportPath}} git https://github.com/myitcv/x">
+    <meta name="go-import" content="{{.RelPath}} git https://github.com/myitcv/x">
 	 {{else -}}
     <meta name="go-import" content="{{.ImportPath}} git https://{{.GithubPath}}">
 	 {{end}}
