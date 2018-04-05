@@ -8,12 +8,13 @@ import (
 )
 
 type pkg struct {
-	ImportPath string
-	RelPath    string
-	GithubPath string
-	WikiUrl    string
-	Desc       string
-	MonoRepo   bool
+	ImportPath   string
+	RelPath      string
+	GithubPath   string
+	WikiUrl      string
+	Desc         string
+	MonoRepo     bool
+	TestMonoRepo bool
 }
 
 var ps = []pkg{
@@ -51,6 +52,10 @@ var ps = []pkg{
 		RelPath:  "gogenerate",
 		MonoRepo: true,
 		Desc:     "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
+	},
+	pkg{
+		RelPath:      "blah",
+		TestMonoRepo: true,
 	},
 	pkg{
 		RelPath:    "go",
@@ -123,6 +128,8 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <title>{{.ImportPath}}</title>
 	 {{if .MonoRepo -}}
     <meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+	 {{else if .TestMonoRepo -}}
+    <meta name="go-import" content="{{.ImportPath}} git https://github.com/myitcv/y">
 	 {{else -}}
     <meta name="go-import" content="{{.ImportPath}} git https://{{.GithubPath}}">
 	 {{end}}
@@ -138,6 +145,8 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <a href="https://godoc.org/{{.ImportPath}}"><code>godoc</code></a><br/>
 	 {{if .MonoRepo -}}
     <a href="https://github.com/myitcv/x/tree/master/{{.RelPath}}">Source</a>
+	 {{else if .TestMonoRepo -}}
+    <a href="https://github.com/myitcv/y/tree/master/{{.RelPath}}">Source</a>
 	 {{else -}}
     <a href="https://{{.GithubPath}}">Source</a>
 	 {{end}}
