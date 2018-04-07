@@ -94,6 +94,14 @@ func init() {
 			tmpls.ExecuteTemplate(w, "root", pkgs)
 		} else if r, ok := pkgs[ps[0]]; ok {
 			tmpls.ExecuteTemplate(w, "pkg", r)
+		} else if p == "blah" {
+			tmpls.ExecuteTemplate(w, "blah", pkg{
+				ImportPath: path.Join("myitcv.io", p),
+			})
+		} else if p == "blah2" {
+			tmpls.ExecuteTemplate(w, "blah2", pkg{
+				ImportPath: path.Join("myitcv.io", p),
+			})
 		} else {
 			// mono repo
 			tmpls.ExecuteTemplate(w, "mono", pkg{
@@ -116,6 +124,37 @@ func stripPort(hostport string) string {
 }
 
 var tmpls = template.Must(template.New("tmpls").Parse(`
+{{define "blah2"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+	<meta name="go-import" content="{{.ImportPath}} mod https://raw.githubusercontent.com/myitcv/pubx/master">
+	<meta name="go-source" content="myitcv.io https://github.com/myitcv/x/wiki https://github.com/myitcv/x/tree/master{/dir} https://github.com/myitcv/x/blob/master{/dir}/{file}#L{line}">
+	<meta http-equiv="refresh" content="0; url=https://godoc.org/{{.ImportPath}}">
+</head>
+<body>
+Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.ImportPath}}</a>...
+</body>
+</html>
+{{end}}
+
+{{define "blah"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+	<meta name="go-source" content="myitcv.io https://github.com/myitcv/x/wiki https://github.com/myitcv/x/tree/master{/dir} https://github.com/myitcv/x/blob/master{/dir}/{file}#L{line}">
+	<meta http-equiv="refresh" content="0; url=https://godoc.org/{{.ImportPath}}">
+</head>
+<body>
+Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.ImportPath}}</a>...
+</body>
+</html>
+{{end}}
+
 {{define "mono"}}
 <!DOCTYPE html>
 <html>
