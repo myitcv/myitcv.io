@@ -49,15 +49,6 @@ var ps = []pkg{
 		GithubPath: "github.com/myitcv/sorter",
 	},
 	pkg{
-		RelPath:  "gogenerate",
-		MonoRepo: true,
-		Desc:     "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
-	},
-	pkg{
-		RelPath:      "blah",
-		TestMonoRepo: true,
-	},
-	pkg{
 		RelPath:    "go",
 		GithubPath: "github.com/myitcv/go",
 		Desc:       "go is a wrapper around the go tool that automatically sets the GOPATH env variable based on the process' current directory.",
@@ -98,11 +89,16 @@ func init() {
 		p := strings.TrimPrefix(req.URL.EscapedPath(), "/")
 		ps := strings.Split(p, "/")
 
-		r, ok := pkgs[ps[0]]
-		if ok {
+		if p == "" {
+			// root
+			tmpls.ExecuteTemplate(w, "root", pkgs)
+		} else if r, ok := pkgs[ps[0]]; ok {
 			tmpls.ExecuteTemplate(w, "pkg", r)
 		} else {
-			tmpls.ExecuteTemplate(w, "root", pkgs)
+			// mono repo
+			tmpls.ExecuteTemplate(w, "mono", pkg{
+				ImportPath: path.Join("myitcv.io", p),
+			})
 		}
 	})
 }
@@ -120,6 +116,22 @@ func stripPort(hostport string) string {
 }
 
 var tmpls = template.Must(template.New("tmpls").Parse(`
+{{define "mono"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+	<!--<meta name="go-import" content="{{.ImportPath}} mod https://raw.githubusercontent.com/myitcv/pubx/master">-->
+	<meta name="go-source" content="myitcv.io https://github.com/myitcv/x/wiki https://github.com/myitcv/x/tree/master{/dir} https://github.com/myitcv/x/blob/master{/dir}/{file}#L{line}">
+	<meta http-equiv="refresh" content="0; url=https://godoc.org/{{.ImportPath}}">
+</head>
+<body>
+Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.ImportPath}}</a>...
+</body>
+</html>
+{{end}}
+
 {{define "pkg"}}
 <!DOCTYPE html>
 <html>
@@ -128,8 +140,9 @@ var tmpls = template.Must(template.New("tmpls").Parse(`
     <title>{{.ImportPath}}</title>
 	 {{if .MonoRepo -}}
     <meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
+    <meta name="go-import" content="{{.ImportPath}} mod https://raw.githubusercontent.com/myitcv/pubx/master">
 	 {{else if .TestMonoRepo -}}
-    <meta name="go-import" content="{{.ImportPath}} git https://github.com/myitcv/y">
+    <meta name="go-import" content="myitcv.io git https://github.com/myitcv/y">
 	 {{else -}}
     <meta name="go-import" content="{{.ImportPath}} git https://{{.GithubPath}}">
 	 {{end}}
