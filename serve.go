@@ -224,7 +224,7 @@ Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.
   <body>
   <h3><code>myitcv.io</code></h3>
   <p>
-  <a href="http://blog.myitcv.org.uk">Blog</a><br/>
+  <a href="https://blog.myitcv.io">Blog</a><br/>
   <a href="https://twitter.com/_myitcv">Twitter</a>
   </p>
   <ul style="list-style: none; padding-left:0;">
