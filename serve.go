@@ -50,6 +50,11 @@ var ps = []pkg{
 		Desc:       "Package hybridimporter is an implementation of go/types.ImporterFrom that uses non-stale package dependency targets where they exist, else falls back to a source-file based importer.",
 	},
 	pkg{
+		RelPath:    "vgoimporter",
+		GithubPath: "github.com/myitcv/vgoimporter",
+		Desc:       "Package vgoimporter is an implementation of go/types.ImporterFrom that uses non-stale package dependency targets where they exist, else falls back to a source-file based importer.",
+	},
+	pkg{
 		RelPath:    "gogenerate",
 		GithubPath: "github.com/myitcv/gogenerate",
 		Desc:       "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
