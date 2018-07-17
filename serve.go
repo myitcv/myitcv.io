@@ -50,27 +50,13 @@ var ps = []pkg{
 		Desc:       "Package hybridimporter is an implementation of go/types.ImporterFrom that uses non-stale package dependency targets where they exist, else falls back to a source-file based importer.",
 	},
 	pkg{
-		RelPath:    "vgoimporter",
-		GithubPath: "github.com/myitcv/vgoimporter",
-		Desc:       "Package vgoimporter is an implementation of go/types.ImporterFrom that uses non-stale package dependency targets where they exist, else falls back to a source-file based importer.",
-	},
-	pkg{
 		RelPath:    "gogenerate",
 		GithubPath: "github.com/myitcv/gogenerate",
 		Desc:       "Package gogenerate exposes some of the unexported internals of the go generate command as a convenience for the authors of go generate generators.  See https://github.com/myitcv/gogenerate/wiki/Go-Generate-Notes for further notes on such generators. It also exposes some convenience functions that might be useful to authors of generators",
 	},
 	pkg{
-		RelPath:    "vgo-by-example",
-		GithubPath: "github.com/myitcv/vgo-by-example",
-	},
-	pkg{
 		RelPath:    "sorter",
 		GithubPath: "github.com/myitcv/sorter",
-	},
-	pkg{
-		RelPath:    "go",
-		GithubPath: "github.com/myitcv/go",
-		Desc:       "go is a wrapper around the go tool that automatically sets the GOPATH env variable based on the process' current directory.",
 	},
 	pkg{
 		RelPath:    "gg",
@@ -93,6 +79,22 @@ var ps = []pkg{
 	pkg{
 		RelPath:    "g",
 		GithubPath: "github.com/myitcv/g",
+	},
+
+	// not relevant for migration
+	pkg{
+		RelPath:    "vgo-by-example",
+		GithubPath: "github.com/myitcv/vgo-by-example",
+	},
+	pkg{
+		RelPath:    "go",
+		GithubPath: "github.com/myitcv/go",
+		Desc:       "go is a wrapper around the go tool that automatically sets the GOPATH env variable based on the process' current directory.",
+	},
+	pkg{
+		RelPath:    "vgoimporter",
+		GithubPath: "github.com/myitcv/vgoimporter",
+		Desc:       "Package vgoimporter is an implementation of go/types.ImporterFrom that uses non-stale package dependency targets where they exist, else falls back to a source-file based importer.",
 	},
 }
 
