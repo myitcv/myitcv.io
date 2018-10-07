@@ -83,8 +83,8 @@ var ps = []pkg{
 
 	// not relevant for migration
 	pkg{
-		RelPath:    "vgo-by-example",
-		GithubPath: "github.com/myitcv/vgo-by-example",
+		RelPath:    "go-modules-by-example",
+		GithubPath: "github.com/go-modules-by-example/index",
 	},
 	pkg{
 		RelPath:    "go",
