@@ -1,4 +1,4 @@
-runtime: go111
+runtime: go112
 
 handlers:
 - url: /favicon\.ico$
@@ -6,5 +6,5 @@ handlers:
   upload: static/images/favicon\.ico$
 
 - url: /.*
-  script: _go_app
+  script: auto
   secure: always
