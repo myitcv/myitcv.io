@@ -151,14 +151,8 @@ Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.
   <p>
   <a href="https://blog.myitcv.io">Blog</a><br/>
   <a href="https://twitter.com/_myitcv">Twitter</a>
+  <a href="https://github.com/myitcv">GitHub</a>
   </p>
-  <ul style="list-style: none; padding-left:0;">
-  <li>Packages: <ul>
-  {{range .}}
-  <li><a href="/{{.RelPath}}">{{.ImportPath}}</a></li>
-  {{end}}
-  </ul>
-  </li></ul>
 	{{template "footer"}}
   </body>
 </html>
