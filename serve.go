@@ -147,10 +147,11 @@ Redirecting to docs at <a href="https://godoc.org/{{.ImportPath}}">godoc.org/{{.
   <meta name="go-import" content="myitcv.io git https://github.com/myitcv/x">
   </head>
   <body>
-  <h3><code>myitcv.io</code></h3>
+  <h1><code>myitcv.io</code></h1>
+  <p>myitcv.io specialises in software development and consultancy for the <a href="https://golang.org/">Go programming language</a>, with a particular focus on tooling.</p>
   <p>
   <a href="https://blog.myitcv.io">Blog</a><br/>
-  <a href="https://twitter.com/_myitcv">Twitter</a>
+  <a href="https://twitter.com/_myitcv">Twitter</a><br/>
   <a href="https://github.com/myitcv">GitHub</a>
   </p>
 	{{template "footer"}}
